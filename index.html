@@ -1,27 +1,236 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title></title>
-    <meta name='description' content=''>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='reset.css'>
-    <link rel='stylesheet' href='style.css'>
-  </head>
-  <body>
-    <h1 id='title'>Cat Cafe</h1>
-    <ul id='nav' class='navList'>
-      <li id='home' class='navItem'>Home</li>
-      <li id='menu' class='navItem'>Menu</li>
-      <li id='about' class='navItem'>About</li>
-      <li id='cats' class='navItem'>Cats</li>
-    </ul>
-    <div id='content' class='container'></div>
 
-    <script>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Cat Cafe</title>
+  <meta name='description' content=''>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='reset.css'>
+  <link rel='stylesheet' href='style.css'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+</head>
 
-    </script>
-  </body>
+<body>
+  <h1 id='title'>The Cat's Corner</h1>
+  <ul id='nav' class='navList'>
+    <li id='homeBtn' class='navItem'>Home</li>
+    <li id='menuBtn' class='navItem'>Menu</li>
+    <li id='aboutBtn' class='navItem'>About</li>
+    <li id='catsBtn' class='navItem'>Staff</li>
+  </ul>
+  <div id='content' class='container'></div>
+  <!-- <footer id='footer'><i>design</i> | <code>(code)</code> - vanquiche</footer> -->
+  <script>
+    // VARIABLES
+    const content = document.getElementById('content');
+    const homeBtn = document.getElementById('homeBtn');
+    const menuBtn = document.getElementById('menuBtn');
+    const aboutBtn = document.getElementById('aboutBtn');
+    const catsBtn = document.getElementById('catsBtn');
+
+    // EVENT LISTENERS
+    homeBtn.addEventListener('click', () => {
+      console.log('home clicked');
+      clearContent();
+      createHome();
+    });
+    menuBtn.addEventListener('click', () => {
+      console.log('menu clicked');
+      clearContent();
+      createMenu();
+    });
+    aboutBtn.addEventListener('click', () => {
+      console.log('about clicked');
+      clearContent();
+      createAbout();
+    });
+    catsBtn.addEventListener('click', () => {
+      console.log('cats clicked');
+      clearContent();
+      createCats();
+    });
+    // onload to landing page
+    window.addEventListener('load', createHome());
+
+    function createHome() {
+      const div = document.createElement('div');
+      const textContainer = document.createElement('div');
+      const title = document.createElement('h1');
+      const text = document.createElement('p');
+      const img = document.createElement('img');
+      // container
+      div.id = 'home';
+      div.classList = 'page';
+      div.classList.add('homePage');
+      textContainer.classList = 'textContainer';
+      // image
+      img.classList = 'homeCover';
+      img.setAttribute('src', '/catPhotos/homepage3.jpg');
+      // texts
+      title.classList = 'pageTitle';
+      title.innerHTML = "Welcome to The Cat's Corner Cafe";
+      text.classList = 'pageText';
+      text.innerText =
+        '\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nib. \nCheck out what all the kities are saying!';
+      content.appendChild(div);
+      div.appendChild(img);
+      div.appendChild(textContainer);
+      textContainer.appendChild(title);
+      textContainer.appendChild(text);
+    };
+    function createMenu() {
+      const container = document.createElement('div');
+      const grid = document.createElement('div');
+      const title = document.createElement('h1');
+      const item1 = document.createElement('p');
+      const item2 = document.createElement('p');
+      const item3 = document.createElement('p');
+      const item4 = document.createElement('p');
+      const item5 = document.createElement('p');
+      const item6 = document.createElement('p');
+      const img = document.createElement('img');
+      // img properties
+      img.setAttribute('src', '/catPhotos/aboutCover.jpg');
+      img.classList = 'homeCover';
+      img.classList.add('shift');
+
+      container.id = 'menu';
+      container.classList = 'page';
+      grid.classList = 'menuPage';
+      title.classList = 'pageTitle';
+      title.classList.add('menuSpan');
+      title.innerText = 'Menu';
+      item1.innerHTML =
+        '<img src="/icons/coffee-cup.png" class="menuIcon"></img><b> Food Item 1</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.';
+      item2.innerHTML =
+        '<img src="/icons/beer.png" class="menuIcon"></img><b> Food Item 2</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.';
+      item3.innerHTML =
+        '<img src="/icons/bread.png" class="menuIcon"></img><b> Food Item 3</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.';
+      item4.innerHTML =
+        '<img src="/icons/burger.png" class="menuIcon"></img><b> Food Item 4</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.';
+      item5.innerHTML =
+        '<img src="/icons/meat.png" class="menuIcon"></img><b> Food Item 5</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.';
+      item6.innerHTML =
+        '<img src="/icons/salad.png" class="menuIcon"></img><b> Food Item 6</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.';
+
+      content.appendChild(container);
+      container.appendChild(img);
+      container.appendChild(grid);
+      grid.appendChild(title);
+      grid.appendChild(item1);
+      grid.appendChild(item2);
+      grid.appendChild(item3);
+      grid.appendChild(item4);
+      grid.appendChild(item5);
+      grid.appendChild(item6);
+    };
+
+    function createAbout() {
+      const div = document.createElement('div');
+      const textContainer = document.createElement('div');
+      const title = document.createElement('h1');
+      const text = document.createElement('p');
+      const img = document.createElement('img');
+
+      // img properties
+      img.setAttribute('src', '/catPhotos/homepage.jpg');
+      img.classList = 'homeCover';
+      // container
+      div.id = 'about';
+      div.classList = 'page';
+      textContainer.classList = 'textContainer';
+      // text
+      title.innerHTML = '<b>About us.</b>';
+      title.classList = 'pageTitle';
+      text.innerText = '\nWhat the Cafe is all about. \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.';
+      text.classList = 'pageText';
+      // appendages
+      content.appendChild(div);
+      div.appendChild(img);
+      div.appendChild(textContainer);
+      textContainer.appendChild(title);
+      textContainer.appendChild(text);
+    };
+
+    function createCats() {
+      const div = document.createElement('div');
+      const title = document.createElement('h1');
+      const info1 = document.createElement('div');
+      const info2 = document.createElement('div');
+      const info3 = document.createElement('div');
+      const info4 = document.createElement('div');
+      const infoText1 = document.createElement('p');
+      const infoText2 = document.createElement('p');
+      const infoText3 = document.createElement('p');
+      const infoText4 = document.createElement('p');
+      const img = document.createElement('img');
+      const overlay = document.createElement('div');
+      // img properties
+      img.setAttribute('src', '/catPhotos/aboutCover2.jpg');
+      img.classList = 'homeCover';
+      div.id = 'cats';
+      div.classList = 'page';
+      overlay.className = 'overlay';
+      // INFO ICONS
+      info1.className = 'infoCircle position1';
+      info2.className = 'infoCircle position2';
+      info3.className = 'infoCircle position3';
+      info4.className = 'infoCircle position4';
+      // INFO TEXTS
+      infoText1.className = 'infoText infoPosition1';
+      infoText1.innerText = 'hello Kitty';
+
+      infoText2.className = 'infoText infoPosition2';
+      infoText2.innerText = 'hello Kitty2';
+
+      infoText3.className = 'infoText infoPosition3';
+      infoText3.innerText = 'hello Kitty3';
+
+      infoText4.className = 'infoText infoPosition4';
+      infoText4.innerText = 'hello Kitty4';
+      // APPENDEGES
+      content.appendChild(div);
+      div.appendChild(img);
+      div.appendChild(overlay);
+      overlay.appendChild(info1);
+      overlay.appendChild(info2);
+      overlay.appendChild(info3);
+      overlay.appendChild(info4);
+      overlay.appendChild(infoText1);
+      overlay.appendChild(infoText2);
+      overlay.appendChild(infoText3);
+      overlay.appendChild(infoText4);
+
+      const infoIcon = [info1, info2, info3, info4];
+      const texts = [infoText1, infoText2, infoText3, infoText4];
+      for (let i = 0; i < infoIcon.length; i++) {
+        infoIcon[i].addEventListener('mouseenter', () => {
+          texts[i].classList.add('visible');
+        });
+        infoIcon[i].addEventListener('mouseleave', () => {
+          texts[i].classList.remove('visible');
+        });
+      }
+    };
+
+    function clearContent() {
+      const home = document.getElementById('home');
+      const menu = document.getElementById('about');
+      const cats = document.getElementById('cats');
+      const about = document.getElementById('menu');
+      home === null ? false : home.remove();
+      menu === null ? false : menu.remove();
+      cats === null ? false : cats.remove();
+      about === null ? false : about.remove();
+    };
+
+
+  </script>
+</body>
+
 </html>
