@@ -1,0 +1,25 @@
+{
+  "name": "restaurantPage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanquiche/restaurantPage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanquiche/restaurantPage/issues"
+  },
+  "homepage": "https://github.com/vanquiche/restaurantPage#readme",
+  "devDependencies": {
+    "webpack": "^5.27.2",
+    "webpack-cli": "^4.5.0"
+  }
+}
